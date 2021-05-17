@@ -198,3 +198,23 @@ print(5, re.compile(".*[.]([^b]..|.[^a].|..[^t])$").search("file.bar").group())
 print(6, re.compile(".*[.]([^b].?.?|.[^a]?.?|..?[^t]?)$").search("file.bar").group())
 print(7, re.compile(".*[.](?!bat$).*$").search("file.bar").group())
 print(8, re.compile(".*[.](?!bat$|exe$).*$").search("file.bar").group())
+
+# EXERCISE 14
+print("<<<<EXERCISE 14>>>>")
+
+print(1, re.compile('(blue|white|red)').sub('colour', 'blue socks and red shoes', count = 1))
+print(2, re.compile(r'(?P<name>\w+)\s+(?P<phone>(\d+)[-](\d+)[-]\d+)').sub("\g<phone>\g<name>", "park 010-1234-1234"))
+
+def hexrepl(match) :
+    value = int(match.group())
+    return hex(value)
+
+print(3, re.compile(r"\d+").sub(hexrepl, "Call 65490 for printing, 49152 for user code."))
+
+# EXERCISE 15
+print("<<<<EXERCISE 15>>>>")
+
+s = '<html><head><title>Title<\title>'
+
+print(1, re.compile('<.*>').match(s).span())
+print(2, re.compile('<.*?>').match(s).span())
