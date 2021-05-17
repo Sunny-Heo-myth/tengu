@@ -266,4 +266,32 @@ print(morse('.... .  ... .-.. . . .--. ...  . .- .-. .-.. -.--'))
 #Q17
 print("<<Q17>>")
 
+import re
 
+p = re.compile('a[.]{3,}b') # . in [] is literal
+p.match('acccb')
+p.match('a....b')
+p.match('aaab')
+p.match('a.cccb')
+
+#Q18
+print("<<Q18>>")
+
+p = re.compile("[a-z]+")
+m = p.search("5 python")
+print(m.group())
+print(m.span())
+print(m.start())
+print(m.end()) # since python do not count the last index
+
+#Q19
+print("<<Q19>>")
+
+data = """
+park 010-9999-9988
+kim 010-9909-7789
+lee 010-8789-7768
+"""
+
+a = re.compile(r"(\d{3})[-](\d{4})[-]\d{4}$", re.MULTILINE)
+print(a.sub("\g<1>-\g<2>-****", data))
