@@ -295,3 +295,15 @@ lee 010-8789-7768
 
 a = re.compile(r"(\d{3})[-](\d{4})[-]\d{4}$", re.MULTILINE)
 print(a.sub("\g<1>-\g<2>-****", data))
+
+#Q20
+print("<<Q20>>")
+
+data = """
+hsymyth@naver.com
+hsymyth@google.com
+hsymyth@google.com
+"""
+a = re.compile(".*[@].*[.](?!net$).*$", re.MULTILINE)
+print(a.findall(data))
+
